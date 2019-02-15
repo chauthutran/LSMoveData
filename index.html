@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lesotho Data Move App</title>
+<meta charset="UTF-8">
+
+	<script src="js/jQuery/jquery-1.9.1.min.js"></script>
+	<script src="js/jQuery/jquery-ui.min.js"></script>
+	<script src="js/jQuery/jquery.blockUI.js"></script> 
+	<script src="js/jQuery/jquery.blockUI.js"></script> 
+	<script src="js/jQuery/jquery.ui.datepicker.js"></script> 
+
+	<script src="js/app/util/util.js"></script>
+	<script src="js/app/util/RESTUtil.js"></script>
+	<script src="js/app/util/MsgManager.js"></script>
+	<script src="js/app/app.js"></script> 
+
+	<link rel="stylesheet" href="css/app/style.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+
+</head>
+
+<body>
+
+	<div id="header">
+		<img id="headerBanner" src="img/logo_banner.png" style="cursor:pointer" title="View home page">
+		<span id="headerText" style="cursor:pointer" title="View home page"></span>
+		<div id="headerRightSideControls">
+			<a href="" target="_blank" style="color: White;">v 0.1</a>
+			| <button type="button" id="closeButton" onclick="window.location.href='../../../dhis-web-dashboard-integration/index.action'"><span nameId='closeButton'>Close</span></button>
+		</div>
+	</div>
+
+	<div style="margin-top:55px;">
+
+		<div class="pageTitle">Lesotho Data Move App</div>
+
+		<br>
+
+		<fieldset id="paramForm">
+			<legend>Options</legend>
+
+			<table>
+				<tr>
+					<td class="right">Start Date: </td>
+					<td><input type="text" id='startDate'></td>
+				</tr>
+				<tr>
+					<td class="right">End Date: </td>
+					<td><input type="text" id='endDate'></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button id="executeBtn" style="margin: 5px 15px;">Execute</button>
+						<button id="stopBtn" class="redButton" style="margin: 5px 5px;">Stop</button>
+					</td>	
+				</tr>		
+			</table>			
+			
+		</fieldset>
+
+		<br>
+
+		<div id="processingDiv" style="display:none;">
+			<table>
+				<tr>
+					<td>
+						<span id="spanProgressMsg"></span>
+						<img id="progressImg" src="img/loading.gif" style="margin-left: 15px;">
+					</td>
+				</tr>
+			</table>		
+		</div>
+
+		<div id="resultDetails" style="display:none;">
+			<h3>RESULT</h3>
+			<div>The total of records retrieved: <span id="resultTotalClients"></span></div>
+			<div>The number of records updated successfully: <span id="noRecordsSuccessed"></div>
+			<div>The number of records updatad failed: <span id="noRecordsfailed"></div><br>
+
+			<div id="failedRecordsDetails" style="display:none;">
+				<table class="listTable">
+					<thead>
+						<tr>
+							<th colspan="3" style="style-weight:bold">Details of Reords updated fail</th>
+						</tr>
+						<tr>
+							<th>Client UID</th>
+							<th>Enrollment date</th>
+							<th>Fail reasons</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+
+			<div id="stoppedRecordsDetails" style="display:none;">
+				<div>The number of records stopped: <span id="stoppedRecordNo"></span></div>
+				<div>You can re-run these records from <span id="stoppedRecordsStartDate"> </span> to <span id="stoppedRecordsEndDate"> </span></div>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+
+</html>
